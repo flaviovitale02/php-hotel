@@ -39,7 +39,17 @@
         ],
 
     ];
-
+    if (!empty($_GET['parking'])){
+        if($_GET['parking'] == 'on'){
+            $filteredHotels = [];
+            foreach ($hotels as $hotel){
+                if ($hotel['parking'] === true){
+                    $filteredHotels[] = $hotel
+                }
+            $hotels = $filteredHotels
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +68,7 @@
         </h1>
     </div>
     
-        <table class="table">
+        <table class="table table-hover table-striped">
             <thead>
                 <tr>
                     <th scope="col">
@@ -93,5 +103,13 @@
                 <?php }?>
             </tbody>
         </table>
+        <form class="ms-2">
+            <div class="mb-3">
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="flexCheckDefault" name="parking">
+                <label class="form-check-label" for="flexCheckDefault"> Parking</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </form>
 </body>
 </html>
