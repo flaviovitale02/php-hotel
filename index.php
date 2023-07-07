@@ -48,43 +48,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Hotels</title>
 </head>
 <body>
-    <?php foreach ($hotels as $singleHotel){?> 
-        <p>
-            <?php echo $singleHotel['name']?>
-            <?php echo $singleHotel['description']?>
-            <?php echo $singleHotel['parking']?>
-            <?php echo $singleHotel['vote']?>
-            <?php echo $singleHotel['distance_to_center']?>
-        </p>
-    <?php }?>
+    <div class="d-flex justify-content-center m-3">
+        <h1>
+            Hotel list
+        </h1>
+    </div>
     
         <table class="table">
             <thead>
                 <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">parking</th>
-                <th scope="col">vote</th>
-                <th scope="col">distance to center</th>
+                    <th scope="col">
+                        Name
+                    </th>
+                    <th scope="col">
+                        Description
+                    </th>
+                    <th scope="col">
+                        Parking
+                    </th>
+                    <th scope="col">
+                        Vote
+                    </th>
+                    <th scope="col">
+                        Distance to center
+                    </th>
                 </tr>
             </thead>
             <tbody>
-        <?php foreach ($hotels as $singleHotel){?> 
-            
-                <tr>
-                <th scope="row"><?php echo $singleHotel['name']?></th>
-                <td><?php echo $singleHotel['description']?></td>
-                <td><?php echo $singleHotel['parking']?></td>
-                <td><?php echo $singleHotel['vote']?></td>
-                <td><?php echo $singleHotel['distance_to_center']?></td>
-                </tr>
-                
-            
-    <?php }?>
-    </tbody>
+                <?php foreach ($hotels as $singleHotel){?> 
+                    
+                        <tr>
+                        <th scope="row"><?php echo $singleHotel['name']?></th>
+                        <td><?php echo $singleHotel['description']?></td>
+                        <td><?php echo $singleHotel['parking']?></td>
+                        <td><?php echo $singleHotel['vote'] . '<i class="fa-solid fa-star"></i>'?></td>
+                        <td><?php echo $singleHotel['distance_to_center'] . 'km'?></td>
+                        </tr>
+                        
+                    
+                <?php }?>
+            </tbody>
         </table>
 </body>
 </html>
